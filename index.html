@@ -1,0 +1,1874 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mousike D'Animas - Donde tu alma encuentra su sonido</title>
+    <meta name="description"
+        content="Tienda especializada en instrumentos musicales de alta calidad. Guitarras, bajos, baterías, pianos y más. Servicio de mantenimiento profesional.">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --negro: #000000;
+            --gris-oscuro: #1A1A1A;
+            --azul: #007BFF;
+            --azul-claro: #1E90FF;
+            --naranja: #FF6F00;
+            --naranja-claro: #FF8C42;
+            --verde: #2ECC71;
+            --verde-oscuro: #27AE60;
+            --purpura: #8E44AD;
+            --purpura-claro: #9B59B6;
+            --blanco: #FFFFFF;
+        }
+
+        body {
+            font-family: 'Inter', 'Segoe UI', system-ui, sans-serif;
+            background: var(--negro);
+            color: var(--blanco);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        /* HEADER */
+        header {
+            background: rgba(26, 26, 26, 0.98);
+            padding: 1rem 2rem;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            backdrop-filter: blur(15px);
+            border-bottom: 1px solid rgba(0, 123, 255, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        header.scrolled {
+            padding: 0.7rem 2rem;
+            box-shadow: 0 5px 30px rgba(0, 123, 255, 0.2);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--blanco);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: transform 0.3s ease;
+        }
+
+        .logo:hover {
+            transform: scale(1.05);
+        }
+
+        .logo-icon {
+            font-size: 2rem;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+
+            0%,
+            100% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.1);
+            }
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--blanco);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-weight: 500;
+            position: relative;
+            padding: 0.5rem 0;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--azul);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .nav-actions {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+        }
+
+        .btn-login,
+        .btn-register {
+            padding: 0.6rem 1.5rem;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 600;
+            border: none;
+            font-size: 0.95rem;
+        }
+
+        .btn-login {
+            background: transparent;
+            color: var(--blanco);
+            border: 2px solid var(--azul);
+        }
+
+        .btn-login:hover {
+            background: var(--azul);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 123, 255, 0.4);
+        }
+
+        .btn-register {
+            background: linear-gradient(135deg, var(--azul) 0%, var(--azul-claro) 100%);
+            color: var(--blanco);
+        }
+
+        .btn-register:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(0, 123, 255, 0.5);
+        }
+
+        .cart-btn {
+            background: var(--naranja);
+            padding: 0.6rem 1.5rem;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            font-weight: 600;
+            border: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .cart-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(255, 111, 0, 0.5);
+            background: var(--naranja-claro);
+        }
+
+        .cart-count {
+            position: absolute;
+            top: -8px;
+            right: -8px;
+            background: var(--verde);
+            color: var(--negro);
+            border-radius: 50%;
+            width: 24px;
+            height: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.75rem;
+            font-weight: bold;
+            animation: bounce 0.5s ease;
+        }
+
+        @keyframes bounce {
+
+            0%,
+            100% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.3);
+            }
+        }
+
+        /* HERO */
+        .hero {
+            margin-top: 80px;
+            min-height: 90vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(135deg, rgba(0, 123, 255, 0.1) 0%, rgba(142, 68, 173, 0.1) 100%);
+        }
+
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('https://images.unsplash.com/photo-1511379938547-c1f69419868d?w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.3;
+            filter: blur(2px);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 10;
+            text-align: center;
+            padding: 2rem;
+            max-width: 900px;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            margin-bottom: 1.5rem;
+            animation: fadeInUp 1s ease;
+            font-weight: 900;
+            line-height: 1.2;
+            background: linear-gradient(135deg, var(--blanco) 0%, var(--azul-claro) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero p {
+            font-size: 1.4rem;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 2.5rem;
+            animation: fadeInUp 1.2s ease;
+        }
+
+        .hero-btns {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            animation: fadeInUp 1.4s ease;
+        }
+
+        .btn-primary,
+        .btn-secondary {
+            padding: 1rem 2.5rem;
+            border-radius: 30px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: none;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--azul) 0%, var(--azul-claro) 100%);
+            color: var(--blanco);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(0, 123, 255, 0.5);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--blanco);
+            border: 2px solid var(--blanco);
+        }
+
+        .btn-secondary:hover {
+            background: var(--blanco);
+            color: var(--negro);
+            transform: translateY(-3px);
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* SECTIONS */
+        .section {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 5rem 2rem;
+        }
+
+        .section-title {
+            font-size: 3rem;
+            text-align: center;
+            margin-bottom: 1rem;
+            font-weight: 800;
+            color: var(--blanco);
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 1.2rem;
+            margin-bottom: 4rem;
+        }
+
+        /* FILTERS */
+        .filters-container {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .filter-group {
+            display: flex;
+            gap: 0.5rem;
+            align-items: center;
+        }
+
+        .filter-btn,
+        .sort-select {
+            padding: 0.7rem 1.5rem;
+            background: rgba(255, 255, 255, 0.05);
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            border-radius: 25px;
+            color: var(--blanco);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+
+        .filter-btn:hover {
+            background: rgba(0, 123, 255, 0.2);
+            border-color: var(--azul);
+            transform: translateY(-2px);
+        }
+
+        .filter-btn.active {
+            background: var(--azul);
+            border-color: var(--azul);
+        }
+
+        .sort-select {
+            padding: 0.7rem 1rem;
+            cursor: pointer;
+        }
+
+        /* CATEGORIES */
+        .categories {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .category-card {
+            background: var(--gris-oscuro);
+            border-radius: 20px;
+            padding: 2.5rem;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.4s ease;
+            border: 2px solid transparent;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .category-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, transparent 0%, rgba(0, 123, 255, 0.1) 100%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .category-card:hover::before {
+            opacity: 1;
+        }
+
+        .category-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 15px 40px rgba(0, 123, 255, 0.3);
+        }
+
+        .category-card.cuerdas:hover {
+            border-color: var(--naranja);
+            box-shadow: 0 15px 40px rgba(255, 111, 0, 0.3);
+        }
+
+        .category-card.electronicos:hover {
+            border-color: var(--verde);
+            box-shadow: 0 15px 40px rgba(46, 204, 113, 0.3);
+        }
+
+        .category-card.vientos:hover {
+            border-color: var(--purpura);
+            box-shadow: 0 15px 40px rgba(142, 68, 173, 0.3);
+        }
+
+        .category-icon {
+            font-size: 4rem;
+            margin-bottom: 1.5rem;
+            display: inline-block;
+            transition: transform 0.3s ease;
+        }
+
+        .category-card:hover .category-icon {
+            transform: scale(1.2) rotate(5deg);
+        }
+
+        .category-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .category-card p {
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        /* PRODUCTS */
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 2.5rem;
+        }
+
+        .product-card {
+            background: var(--gris-oscuro);
+            border-radius: 20px;
+            overflow: hidden;
+            transition: all 0.4s ease;
+            border: 2px solid transparent;
+            position: relative;
+        }
+
+        .product-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 40px rgba(0, 123, 255, 0.4);
+            border-color: var(--azul);
+        }
+
+        .product-img {
+            width: 100%;
+            height: 280px;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .product-badge {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: var(--verde);
+            color: var(--negro);
+            padding: 0.4rem 1rem;
+            border-radius: 20px;
+            font-weight: 700;
+            font-size: 0.85rem;
+        }
+
+        .product-info {
+            padding: 1.5rem;
+        }
+
+        .product-category {
+            color: var(--azul);
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 0.5rem;
+        }
+
+        .product-name {
+            font-size: 1.4rem;
+            margin-bottom: 0.8rem;
+            font-weight: 700;
+        }
+
+        .product-description {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.95rem;
+            margin-bottom: 1rem;
+            line-height: 1.5;
+        }
+
+        .product-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .product-price {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--verde);
+        }
+
+        .add-to-cart {
+            padding: 0.8rem 1.8rem;
+            background: linear-gradient(135deg, var(--naranja) 0%, var(--naranja-claro) 100%);
+            border: none;
+            border-radius: 25px;
+            color: var(--blanco);
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: 700;
+            transition: all 0.3s ease;
+        }
+
+        .add-to-cart:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 20px rgba(255, 111, 0, 0.5);
+        }
+
+        /* SERVICES */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2.5rem;
+        }
+
+        .service-card {
+            background: var(--gris-oscuro);
+            border-radius: 20px;
+            padding: 2.5rem;
+            border-left: 5px solid var(--azul);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 5px;
+            height: 100%;
+            background: var(--azul);
+            transition: width 0.3s ease;
+        }
+
+        .service-card:hover::before {
+            width: 100%;
+            opacity: 0.1;
+        }
+
+        .service-card:hover {
+            transform: translateX(10px);
+            box-shadow: 0 10px 30px rgba(0, 123, 255, 0.3);
+        }
+
+        .service-icon {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            display: inline-block;
+        }
+
+        .service-card h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            color: var(--azul-claro);
+        }
+
+        .service-card p {
+            color: rgba(255, 255, 255, 0.8);
+            line-height: 1.7;
+        }
+
+        /* STORIES */
+        .stories-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2.5rem;
+        }
+
+        .story-card {
+            background: var(--gris-oscuro);
+            border-radius: 20px;
+            padding: 2rem;
+            transition: all 0.3s ease;
+        }
+
+        .story-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(142, 68, 173, 0.3);
+        }
+
+        .story-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .story-avatar {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--purpura) 0%, var(--purpura-claro) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+        }
+
+        .story-author {
+            flex: 1;
+        }
+
+        .story-author h4 {
+            font-size: 1.2rem;
+            margin-bottom: 0.3rem;
+        }
+
+        .story-author p {
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 0.9rem;
+        }
+
+        .story-rating {
+            color: var(--naranja);
+            font-size: 1.2rem;
+        }
+
+        .story-text {
+            color: rgba(255, 255, 255, 0.8);
+            line-height: 1.7;
+            font-style: italic;
+        }
+
+        /* PHILOSOPHY */
+        .philosophy {
+            background: linear-gradient(135deg, rgba(0, 123, 255, 0.1) 0%, rgba(142, 68, 173, 0.1) 100%);
+            border-radius: 30px;
+            padding: 5rem 3rem;
+            text-align: center;
+            margin: 5rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .philosophy::before {
+            content: '🎵';
+            position: absolute;
+            font-size: 15rem;
+            opacity: 0.05;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .philosophy h2 {
+            font-size: 3rem;
+            margin-bottom: 2rem;
+            position: relative;
+        }
+
+        .philosophy p {
+            font-size: 1.3rem;
+            line-height: 1.9;
+            color: rgba(255, 255, 255, 0.9);
+            max-width: 900px;
+            margin: 0 auto 1.5rem;
+            position: relative;
+        }
+
+        /* CONTACT FORM */
+        .contact-form {
+            max-width: 600px;
+            margin: 3rem auto;
+            background: var(--gris-oscuro);
+            padding: 3rem;
+            border-radius: 20px;
+            border: 2px solid rgba(0, 123, 255, 0.2);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--azul-claro);
+            font-weight: 600;
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 1rem;
+            background: rgba(255, 255, 255, 0.05);
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            color: var(--blanco);
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: var(--azul);
+            background: rgba(0, 123, 255, 0.05);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .btn-submit {
+            width: 100%;
+            padding: 1.2rem;
+            background: linear-gradient(135deg, var(--azul) 0%, var(--azul-claro) 100%);
+            border: none;
+            border-radius: 30px;
+            color: var(--blanco);
+            font-size: 1.1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .btn-submit:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(0, 123, 255, 0.5);
+        }
+
+        /* FOOTER */
+        footer {
+            background: var(--gris-oscuro);
+            padding: 4rem 2rem 2rem;
+            margin-top: 5rem;
+            border-top: 2px solid rgba(0, 123, 255, 0.2);
+        }
+
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-section h3 {
+            color: var(--azul-claro);
+            margin-bottom: 1.5rem;
+            font-size: 1.3rem;
+        }
+
+        .footer-section p,
+        .footer-section a {
+            color: rgba(255, 255, 255, 0.7);
+            line-height: 1.8;
+            text-decoration: none;
+            display: block;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section a:hover {
+            color: var(--azul-claro);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-link {
+            width: 45px;
+            height: 45px;
+            background: rgba(0, 123, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+            transition: all 0.3s ease;
+        }
+
+        .social-link:hover {
+            background: var(--azul);
+            transform: translateY(-3px);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        /* MODAL */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            z-index: 2000;
+            align-items: center;
+            justify-content: center;
+            animation: fadeIn 0.3s ease;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        .modal-content {
+            background: var(--gris-oscuro);
+            border-radius: 30px;
+            padding: 3rem;
+            max-width: 700px;
+            width: 90%;
+            max-height: 85vh;
+            overflow-y: auto;
+            border: 2px solid var(--azul);
+            position: relative;
+            animation: slideUp 0.4s ease;
+        }
+
+        @keyframes slideUp {
+            from {
+                transform: translateY(50px);
+                opacity: 0;
+            }
+
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+        }
+
+        .modal-header h2 {
+            font-size: 2rem;
+            color: var(--blanco);
+        }
+
+        .close-modal {
+            background: rgba(255, 255, 255, 0.1);
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            color: var(--blanco);
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .close-modal:hover {
+            background: var(--naranja);
+            transform: rotate(90deg);
+        }
+
+        .cart-item {
+            display: flex;
+            gap: 1.5rem;
+            padding: 1.5rem;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            margin-bottom: 1rem;
+            align-items: center;
+        }
+
+        .cart-item-img {
+            width: 80px;
+            height: 80px;
+            background-size: cover;
+            background-position: center;
+            border-radius: 10px;
+        }
+
+        .cart-item-info {
+            flex: 1;
+        }
+
+        .cart-item-name {
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 0.3rem;
+        }
+
+        .cart-item-price {
+            color: var(--verde);
+            font-size: 1.3rem;
+            font-weight: 700;
+        }
+
+        .remove-item {
+            background: var(--naranja);
+            border: none;
+            padding: 0.6rem 1.2rem;
+            border-radius: 20px;
+            color: var(--blanco);
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .remove-item:hover {
+            background: var(--naranja-claro);
+            transform: scale(1.05);
+        }
+
+        .cart-total {
+            font-size: 2rem;
+            color: var(--verde);
+            text-align: right;
+            margin-top: 2rem;
+            font-weight: 800;
+        }
+
+        .empty-cart {
+            text-align: center;
+            padding: 3rem;
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        .empty-cart-icon {
+            font-size: 5rem;
+            margin-bottom: 1rem;
+            opacity: 0.3;
+        }
+
+        /* LOGIN/REGISTER FORMS */
+        .auth-form {
+            max-width: 450px;
+        }
+
+        .auth-divider {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin: 2rem 0;
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        .auth-divider::before,
+        .auth-divider::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .google-login {
+            width: 100%;
+            padding: 1rem;
+            background: var(--blanco);
+            color: var(--negro);
+            border: none;
+            border-radius: 25px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.8rem;
+            font-size: 1rem;
+        }
+
+        .google-login:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 968px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                font-size: 1.1rem;
+            }
+
+            .hero-btns {
+                flex-direction: column;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .products-grid {
+                grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            }
+        }
+
+        @media (max-width: 640px) {
+            .nav-actions {
+                gap: 0.5rem;
+            }
+
+            .btn-login,
+            .btn-register {
+                padding: 0.5rem 1rem;
+                font-size: 0.85rem;
+            }
+
+            .cart-btn {
+                padding: 0.5rem 1rem;
+                font-size: 0.9rem;
+            }
+        }
+
+        /* LOADING ANIMATION */
+        .loading {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 3px solid rgba(255, 255, 255, .3);
+            border-radius: 50%;
+            border-top-color: var(--blanco);
+            animation: spin 1s ease-in-out infinite;
+        }
+
+        @keyframes spin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        /* SCROLL TO TOP */
+        .scroll-top {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            width: 50px;
+            height: 50px;
+            background: var(--azul);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            opacity: 0;
+            pointer-events: none;
+            transition: all 0.3s ease;
+            z-index: 999;
+        }
+
+        .scroll-top.show {
+            opacity: 1;
+            pointer-events: all;
+        }
+
+        .scroll-top:hover {
+            background: var(--azul-claro);
+            transform: translateY(-5px);
+        }
+    </style>
+</head>
+
+<body>
+    <header id="header">
+        <nav>
+            <div class="logo">
+                <span class="logo-icon">🎵</span>
+                <span>Mousike D'Animas</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#instrumentos">Instrumentos</a></li>
+                <li><a href="#servicios">Servicios</a></li>
+                <li><a href="#historias">Historias</a></li>
+                <li><a href="#filosofia">Filosofía</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+            <div class="nav-actions">
+                <button class="btn-login" onclick="openModal('login')">Iniciar Sesión</button>
+                <button class="btn-register" onclick="openModal('register')">Registrarse</button>
+                <button class="cart-btn" onclick="openModal('cart')">
+                    🛒 <span id="cartCount" class="cart-count">0</span>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <section class="hero" id="inicio">
+        <div class="hero-bg"></div>
+        <div class="hero-content">
+            <h1>Donde tu alma encuentra su sonido</h1>
+            <p>Instrumentos de alta calidad • Mantenimiento profesional • Historias que inspiran</p>
+            <div class="hero-btns">
+                <a href="#instrumentos" class="btn-primary">Explorar Instrumentos</a>
+                <a href="#servicios" class="btn-secondary">Nuestros Servicios</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <h2 class="section-title">Explora por Categoría</h2>
+        <p class="section-subtitle">Encuentra el instrumento perfecto para tu estilo musical</p>
+        <div class="categories">
+            <div class="category-card cuerdas" onclick="filterProducts('guitarras')">
+                <div class="category-icon">🎸</div>
+                <h3>Guitarras & Bajos</h3>
+                <p>Instrumentos de cuerda para todo nivel</p>
+            </div>
+            <div class="category-card" onclick="filterProducts('baterias')">
+                <div class="category-icon">🥁</div>
+                <h3>Baterías & Percusión</h3>
+                <p>Ritmo y potencia en cada golpe</p>
+            </div>
+            <div class="category-card electronicos" onclick="filterProducts('pianos')">
+                <div class="category-icon">🎹</div>
+                <h3>Pianos & Teclados</h3>
+                <p>Melodías que tocan el alma</p>
+            </div>
+            <div class="category-card vientos" onclick="filterProducts('vientos')">
+                <div class="category-icon">🎺</div>
+                <h3>Instrumentos de Viento</h3>
+                <p>Sonidos que elevan el espíritu</p>
+            </div>
+            <div class="category-card electronicos" onclick="filterProducts('electronicos')">
+                <div class="category-icon">🎛️</div>
+                <h3>Electrónicos & DJ</h3>
+                <p>Tecnología y creatividad musical</p>
+            </div>
+            <div class="category-card" onclick="filterProducts('all')">
+                <div class="category-icon">✨</div>
+                <h3>Ver Todo</h3>
+                <p>Explora todo nuestro catálogo</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="instrumentos">
+        <h2 class="section-title">Nuestros Instrumentos</h2>
+        <p class="section-subtitle">Cada instrumento seleccionado con pasión y experiencia</p>
+
+        <div class="filters-container">
+            <div class="filter-group">
+                <button class="filter-btn active" onclick="filterByLevel('all')">Todos</button>
+                <button class="filter-btn" onclick="filterByLevel('principiante')">Principiante</button>
+                <button class="filter-btn" onclick="filterByLevel('intermedio')">Intermedio</button>
+                <button class="filter-btn" onclick="filterByLevel('profesional')">Profesional</button>
+            </div>
+            <select class="sort-select" onchange="sortProducts(this.value)">
+                <option value="default">Ordenar por</option>
+                <option value="price-asc">Precio: Menor a Mayor</option>
+                <option value="price-desc">Precio: Mayor a Menor</option>
+                <option value="name">Nombre A-Z</option>
+            </select>
+        </div>
+
+        <div class="products-grid" id="productsGrid"></div>
+    </section>
+
+    <section class="section" id="servicios">
+        <h2 class="section-title">Servicios de Mantenimiento</h2>
+        <p class="section-subtitle">Técnicos expertos que cuidan tu instrumento con dedicación</p>
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-icon">🎸</div>
+                <h3>Instrumentos de Cuerda</h3>
+                <p>Calibración profesional, cambio de cuerdas, ajuste de tensión, reparación de trastes y mantenimiento
+                    completo. Trabajamos con guitarras acústicas, eléctricas, bajos, violines, violas y más.</p>
+                <p style="margin-top: 1rem; color: var(--naranja); font-weight: 600;">Desde $25</p>
+            </div>
+            <div class="service-card" style="border-left-color: var(--purpura)">
+                <div class="service-icon">🎺</div>
+                <h3>Instrumentos de Viento</h3>
+                <p>Limpieza profunda, reparación de válvulas, ajuste de llaves, enderezamiento de tubos. Especialistas
+                    en saxofones, trompetas, trombones, clarinetes y flautas.</p>
+                <p style="margin-top: 1rem; color: var(--purpura); font-weight: 600;">Desde $40</p>
+            </div>
+            <div class="service-card" style="border-left-color: var(--azul-claro)">
+                <div class="service-icon">🥁</div>
+                <h3>Percusión</h3>
+                <p>Cambio de parches, afinación precisa, reparación de herrajes, mantenimiento de platillos y
+                    restauración de kits completos. Atención personalizada.</p>
+                <p style="margin-top: 1rem; color: var(--azul-claro); font-weight: 600;">Desde $30</p>
+            </div>
+            <div class="service-card" style="border-left-color: var(--verde)">
+                <div class="service-icon">🎹</div>
+                <h3>Electrónicos</h3>
+                <p>Diagnóstico técnico avanzado, reparación de circuitos, calibración de teclados, actualización de
+                    firmware y mantenimiento especializado en equipos digitales.</p>
+                <p style="margin-top: 1rem; color: var(--verde); font-weight: 600;">Desde $50</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="historias">
+        <h2 class="section-title">Historias Musicales</h2>
+        <p class="section-subtitle">Lo que nuestros clientes dicen sobre su experiencia</p>
+        <div class="stories-grid">
+            <div class="story-card">
+                <div class="story-header">
+                    <div class="story-avatar">🎸</div>
+                    <div class="story-author">
+                        <h4>Carlos Mendoza</h4>
+                        <p>Guitarrista profesional</p>
+                    </div>
+                    <div class="story-rating">⭐⭐⭐⭐⭐</div>
+                </div>
+                <p class="story-text">"Compré mi primera guitarra profesional aquí hace 3 años. El asesoramiento fue
+                    impecable y el servicio de mantenimiento ha mantenido mi instrumento en perfectas condiciones.
+                    Mousike D'Animas entiende lo que los músicos necesitamos."</p>
+            </div>
+            <div class="story-card">
+                <div class="story-header">
+                    <div class="story-avatar">🎹</div>
+                    <div class="story-author">
+                        <h4>Ana Lucía Torres</h4>
+                        <p>Pianista de jazz</p>
+                    </div>
+                    <div class="story-rating">⭐⭐⭐⭐⭐</div>
+                </div>
+                <p class="story-text">"Mi piano digital es el corazón de mi música. Cuando necesitó reparación, el
+                    equipo técnico lo dejó como nuevo. La atención es personal, profesional y llena de pasión por la
+                    música. ¡Totalmente recomendado!"</p>
+            </div>
+            <div class="story-card">
+                <div class="story-header">
+                    <div class="story-avatar">🥁</div>
+                    <div class="story-author">
+                        <h4>Roberto Silva</h4>
+                        <p>Baterista de rock</p>
+                    </div>
+                    <div class="story-rating">⭐⭐⭐⭐⭐</div>
+                </div>
+                <p class="story-text">"Encontré mi batería soñada aquí. Desde el primer momento sentí que no solo estaba
+                    comprando un instrumento, sino iniciando una relación con personas que realmente aman la música
+                    tanto como yo."</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section philosophy" id="filosofia">
+        <h2>Nuestra Filosofía</h2>
+        <p>Creemos que cada persona tiene un sonido único que merece ser escuchado. En Mousike D'Animas no solo vendemos
+            instrumentos, acompañamos tu viaje musical desde el primer acorde hasta la última nota.</p>
+        <p>Cada instrumento tiene alma, cada nota cuenta una historia, y cada músico merece encontrar el compañero
+            perfecto para expresar su esencia. Seleccionamos cada producto pensando en la calidad, la personalidad
+            sonora y la capacidad de inspirar creatividad.</p>
+        <p>Más que una tienda, somos un espacio de inspiración donde la música cobra vida, donde los sueños se
+            convierten en melodías, y donde cada cliente se convierte en parte de nuestra familia musical.</p>
+    </section>
+
+    <section class="section" id="contacto">
+        <h2 class="section-title">Contáctanos</h2>
+        <p class="section-subtitle">¿Tienes preguntas? Estamos aquí para ayudarte</p>
+        <div class="contact-form">
+            <form onsubmit="handleContactSubmit(event)">
+                <div class="form-group">
+                    <label for="name">Nombre Completo</label>
+                    <input type="text" id="name" name="name" required placeholder="Tu nombre">
+                </div>
+                <div class="form-group">
+                    <label for="email">Correo Electrónico</label>
+                    <input type="email" id="email" name="email" required placeholder="tu@email.com">
+                </div>
+                <div class="form-group">
+                    <label for="subject">Asunto</label>
+                    <select id="subject" name="subject" required>
+                        <option value="">Selecciona un tema</option>
+                        <option value="compra">Consulta sobre compra</option>
+                        <option value="mantenimiento">Servicio de mantenimiento</option>
+                        <option value="cotizacion">Solicitar cotización</option>
+                        <option value="otro">Otro</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="message">Mensaje</label>
+                    <textarea id="message" name="message" required
+                        placeholder="Cuéntanos cómo podemos ayudarte..."></textarea>
+                </div>
+                <button type="submit" class="btn-submit">Enviar Mensaje</button>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>🎵 Mousike D'Animas</h3>
+                <p>Donde tu alma encuentra su sonido. Más que instrumentos, somos tu compañero en el viaje musical.</p>
+                <div class="social-links">
+                    <a href="#" class="social-link">📘</a>
+                    <a href="#" class="social-link">📷</a>
+                    <a href="#" class="social-link">🎵</a>
+                    <a href="#" class="social-link">📧</a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h3>Explorar</h3>
+                <a href="#instrumentos">Instrumentos</a>
+                <a href="#servicios">Servicios</a>
+                <a href="#historias">Historias</a>
+                <a href="#filosofia">Filosofía</a>
+                <a href="#contacto">Contacto</a>
+            </div>
+            <div class="footer-section">
+                <h3>Categorías</h3>
+                <a href="#" onclick="filterProducts('guitarras')">Guitarras & Bajos</a>
+                <a href="#" onclick="filterProducts('baterias')">Baterías</a>
+                <a href="#" onclick="filterProducts('pianos')">Pianos</a>
+                <a href="#" onclick="filterProducts('vientos')">Vientos</a>
+                <a href="#" onclick="filterProducts('electronicos')">Electrónicos</a>
+            </div>
+            <div class="footer-section">
+                <h3>Contacto</h3>
+                <p>📍 Chiclayo, Lambayeque, Perú</p>
+                <p>📞 +51 900 000 000</p>
+                <p>✉️ info@mousikedanimas.com</p>
+                <p>🕒 Lun - Sáb: 9:00 - 20:00</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2024 Mousike D'Animas. Proyecto educativo • Todos los derechos reservados</p>
+        </div>
+    </footer>
+
+    <!-- MODALS -->
+    <div class="modal" id="cartModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>🛒 Tu Carrito</h2>
+                <button class="close-modal" onclick="closeModal('cart')">×</button>
+            </div>
+            <div id="cartItems"></div>
+            <div class="cart-total" id="cartTotal">Total: $0</div>
+            <button class="btn-submit" style="margin-top: 1.5rem;"
+                onclick="alert('Funcionalidad de pago en desarrollo. ¡Gracias por tu interés!')">Proceder al
+                Pago</button>
+        </div>
+    </div>
+
+    <div class="modal" id="loginModal">
+        <div class="modal-content auth-form">
+            <div class="modal-header">
+                <h2>Iniciar Sesión</h2>
+                <button class="close-modal" onclick="closeModal('login')">×</button>
+            </div>
+            <form onsubmit="handleLogin(event)">
+                <div class="form-group">
+                    <label for="login-email">Correo Electrónico</label>
+                    <input type="email" id="login-email" required placeholder="tu@email.com">
+                </div>
+                <div class="form-group">
+                    <label for="login-password">Contraseña</label>
+                    <input type="password" id="login-password" required placeholder="Tu contraseña">
+                </div>
+                <button type="submit" class="btn-submit">Iniciar Sesión</button>
+            </form>
+            <div class="auth-divider">o continuar con</div>
+            <button class="google-login" onclick="handleGoogleLogin()">
+                <span style="font-size: 1.5rem;">🔐</span>
+                Continuar con Google
+            </button>
+            <p style="text-align: center; margin-top: 1.5rem; color: rgba(255,255,255,0.6);">
+                ¿No tienes cuenta? <a href="#" onclick="closeModal('login'); openModal('register')"
+                    style="color: var(--azul); font-weight: 600;">Regístrate aquí</a>
+            </p>
+        </div>
+    </div>
+
+    <div class="modal" id="registerModal">
+        <div class="modal-content auth-form">
+            <div class="modal-header">
+                <h2>Crear Cuenta</h2>
+                <button class="close-modal" onclick="closeModal('register')">×</button>
+            </div>
+            <form onsubmit="handleRegister(event)">
+                <div class="form-group">
+                    <label for="register-name">Nombre Completo</label>
+                    <input type="text" id="register-name" required placeholder="Tu nombre">
+                </div>
+                <div class="form-group">
+                    <label for="register-email">Correo Electrónico</label>
+                    <input type="email" id="register-email" required placeholder="tu@email.com">
+                </div>
+                <div class="form-group">
+                    <label for="register-password">Contraseña</label>
+                    <input type="password" id="register-password" required placeholder="Mínimo 8 caracteres">
+                </div>
+                <button type="submit" class="btn-submit">Crear Cuenta</button>
+            </form>
+            <div class="auth-divider">o registrarse con</div>
+            <button class="google-login" onclick="handleGoogleLogin()">
+                <span style="font-size: 1.5rem;">🔐</span>
+                Registrarse con Google
+            </button>
+            <p style="text-align: center; margin-top: 1.5rem; color: rgba(255,255,255,0.6);">
+                ¿Ya tienes cuenta? <a href="#" onclick="closeModal('register'); openModal('login')"
+                    style="color: var(--azul); font-weight: 600;">Inicia sesión</a>
+            </p>
+        </div>
+    </div>
+
+    <div class="scroll-top" id="scrollTop" onclick="scrollToTop()">
+        ↑
+    </div>
+
+    <script>
+        const products = [
+            {
+                id: 1,
+                name: 'Fender Stratocaster',
+                price: 1250,
+                category: 'guitarras',
+                level: 'profesional',
+                description: 'Guitarra eléctrica icónica con sonido versátil',
+                image: 'https://images.unsplash.com/photo-1564186763535-ebb21ef5277f?w=600&q=80',
+                badge: 'Bestseller'
+            },
+            {
+                id: 2,
+                name: 'Yamaha FG800',
+                price: 450,
+                category: 'guitarras',
+                level: 'principiante',
+                description: 'Guitarra acústica ideal para empezar',
+                image: 'https://images.unsplash.com/photo-1510915361894-db8b60106cb1?w=600&q=80'
+            },
+            {
+                id: 3,
+                name: 'Fender Precision Bass',
+                price: 980,
+                category: 'bajos',
+                level: 'intermedio',
+                description: 'Bajo eléctrico con sonido potente y definido',
+                image: 'https://images.unsplash.com/photo-1556449895-a33c9dba33dd?w=600&q=80'
+            },
+            {
+                id: 4,
+                name: 'Ibanez SR300E',
+                price: 620,
+                category: 'bajos',
+                level: 'intermedio',
+                description: 'Bajo versátil para múltiples estilos',
+                image: 'https://images.unsplash.com/photo-1598387993281-cecf8b71a8f8?w=600&q=80',
+                badge: 'Nuevo'
+            },
+            {
+                id: 5,
+                name: 'Pearl Export Series',
+                price: 1450,
+                category: 'baterias',
+                level: 'profesional',
+                description: 'Batería completa 5 piezas con herrajes',
+                image: 'https://images.unsplash.com/photo-1519892300165-cb5542fb47c7?w=600&q=80'
+            },
+            {
+                id: 6,
+                name: 'Cajón Peruano Artesanal',
+                price: 280,
+                category: 'baterias',
+                level: 'principiante',
+                description: 'Percusión tradicional de alta calidad',
+                image: 'https://images.unsplash.com/photo-1568122678389-34d9d6df5d5c?w=600&q=80',
+                badge: 'Artesanal'
+            },
+            {
+                id: 7,
+                name: 'Yamaha P-125',
+                price: 1800,
+                category: 'pianos',
+                level: 'intermedio',
+                description: 'Piano digital 88 teclas con sonido realista',
+                image: 'https://images.unsplash.com/photo-1520523839897-bd0b52f945a0?w=600&q=80',
+                badge: 'Bestseller'
+            },
+            {
+                id: 8,
+                name: 'Casio CT-S300',
+                price: 380,
+                category: 'pianos',
+                level: 'principiante',
+                description: 'Teclado portátil perfecto para aprender',
+                image: 'https://images.unsplash.com/photo-1511379938547-c1f69419868d?w=600&q=80'
+            },
+            {
+                id: 9,
+                name: 'Yamaha YAS-280',
+                price: 1650,
+                category: 'vientos',
+                level: 'intermedio',
+                description: 'Saxofón alto con excelente proyección',
+                image: 'https://www.normans.co.uk/cdn/shop/products/3499_1.jpg?v=1621240124'
+            },
+            {
+                id: 10,
+                name: 'Bach TR300H2',
+                price: 980,
+                category: 'vientos',
+                level: 'principiante',
+                description: 'Trompeta perfecta para estudiantes',
+                image: 'https://images.unsplash.com/photo-1511192336575-5a79af67a629?w=600&q=80'
+            },
+            {
+                id: 11,
+                name: 'Gemeinhardt 2SP',
+                price: 520,
+                category: 'vientos',
+                level: 'principiante',
+                description: 'Flauta traversa de calidad profesional',
+                image: 'https://images.unsplash.com/photo-1563281746-3369e0e0e3e9?w=600&q=80',
+                badge: 'Oferta'
+            },
+            {
+                id: 12,
+                name: 'Moog Subsequent 37',
+                price: 2800,
+                category: 'electronicos',
+                level: 'profesional',
+                description: 'Sintetizador analógico de alta gama',
+                image: 'https://images.unsplash.com/photo-1598653222000-6b7b7a552625?w=600&q=80',
+                badge: 'Premium'
+            },
+            {
+                id: 13,
+                name: 'Pioneer DDJ-400',
+                price: 780,
+                category: 'electronicos',
+                level: 'intermedio',
+                description: 'Controlador DJ perfecto para Rekordbox',
+                image: 'https://images.unsplash.com/photo-1598653222000-6b7b7a552625?w=600&q=80'
+            },
+            {
+                id: 14,
+                name: 'Boss GT-1',
+                price: 350,
+                category: 'electronicos',
+                level: 'principiante',
+                description: 'Pedal multiefectos compacto y potente',
+                image: 'https://images.unsplash.com/photo-1613518823175-e0f8b0f2e8d6?w=600&q=80'
+            },
+            {
+                id: 15,
+                name: 'Gibson Les Paul',
+                price: 2950,
+                category: 'guitarras',
+                level: 'profesional',
+                description: 'Ícono del rock con sonido legendario',
+                image: 'https://images.unsplash.com/photo-1510915228340-29c85a43dcfe?w=600&q=80',
+                badge: 'Premium'
+            }
+        ];
+
+        let cart = [];
+        let currentFilter = 'all';
+        let currentLevel = 'all';
+        let currentSort = 'default';
+
+        function renderProducts() {
+            const grid = document.getElementById('productsGrid');
+            let filtered = products;
+
+            if (currentFilter !== 'all') {
+                filtered = filtered.filter(p => p.category === currentFilter);
+            }
+
+            if (currentLevel !== 'all') {
+                filtered = filtered.filter(p => p.level === currentLevel);
+            }
+
+            if (currentSort === 'price-asc') {
+                filtered = [...filtered].sort((a, b) => a.price - b.price);
+            } else if (currentSort === 'price-desc') {
+                filtered = [...filtered].sort((a, b) => b.price - a.price);
+            } else if (currentSort === 'name') {
+                filtered = [...filtered].sort((a, b) => a.name.localeCompare(b.name));
+            }
+
+            grid.innerHTML = filtered.map(product => `
+                <div class="product-card">
+                    <div class="product-img" style="background-image: url('${product.image}')">
+                        ${product.badge ? `<div class="product-badge">${product.badge}</div>` : ''}
+                    </div>
+                    <div class="product-info">
+                        <div class="product-category">${product.category}</div>
+                        <h3 class="product-name">${product.name}</h3>
+                        <p class="product-description">${product.description}</p>
+                        <div class="product-footer">
+                            <div class="product-price">${product.price}</div>
+                            <button class="add-to-cart" onclick="addToCart(${product.id})">
+                                Agregar
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function filterProducts(category) {
+            currentFilter = category;
+            renderProducts();
+            document.getElementById('instrumentos').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function filterByLevel(level) {
+            currentLevel = level;
+            renderProducts();
+
+            document.querySelectorAll('.filter-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+
+            // Ensure we target the button even if child element was clicked
+            const targetBtn = event.target.closest('.filter-btn');
+            if (targetBtn) {
+                targetBtn.classList.add('active');
+            }
+        }
+
+        function sortProducts(value) {
+            currentSort = value;
+            renderProducts();
+        }
+
+        // MODAL FUNCTIONALITY
+        function openModal(modalId) {
+            const modal = document.getElementById(modalId + 'Modal');
+            if (modal) {
+                modal.style.display = 'flex';
+                document.body.style.overflow = 'hidden'; // Prevent background scrolling
+            }
+        }
+
+        function closeModal(modalId) {
+            const modal = document.getElementById(modalId + 'Modal');
+            if (modal) {
+                modal.style.display = 'none';
+                document.body.style.overflow = 'auto'; // Restore scrolling
+            }
+        }
+
+        // Close modal when clicking outside
+        window.onclick = function (event) {
+            if (event.target.classList.contains('modal')) {
+                event.target.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }
+        }
+
+        // CART LOGIC
+        function addToCart(id) {
+            const product = products.find(p => p.id === id);
+            if (product) {
+                cart.push(product);
+                updateCartCount();
+                renderCart();
+                openModal('cart');
+            }
+        }
+
+        function removeFromCart(index) {
+            cart.splice(index, 1);
+            updateCartCount();
+            renderCart();
+        }
+
+        function updateCartCount() {
+            const countElement = document.getElementById('cartCount');
+            if (countElement) {
+                countElement.textContent = cart.length;
+                // Add animation class
+                countElement.classList.remove('bounce');
+                void countElement.offsetWidth; // Trigger reflow
+                countElement.classList.add('bounce');
+            }
+        }
+
+        function renderCart() {
+            const cartItemsContainer = document.getElementById('cartItems');
+            const cartTotalElement = document.getElementById('cartTotal');
+
+            if (!cartItemsContainer || !cartTotalElement) return;
+
+            if (cart.length === 0) {
+                cartItemsContainer.innerHTML = `
+                    <div class="empty-cart">
+                        <div class="empty-cart-icon">🛒</div>
+                        <p>Tu carrito está vacío</p>
+                        <button class="btn-primary" onclick="closeModal('cart'); document.getElementById('instrumentos').scrollIntoView({behavior: 'smooth'})" style="margin-top: 1rem;">
+                            Explorar Productos
+                        </button>
+                    </div>
+                `;
+                cartTotalElement.textContent = 'Total: $0';
+                return;
+            }
+
+            let total = 0;
+            cartItemsContainer.innerHTML = cart.map((item, index) => {
+                total += item.price;
+                return `
+                    <div class="cart-item">
+                        <div class="cart-item-img" style="background-image: url('${item.image}')"></div>
+                        <div class="cart-item-info">
+                            <div class="cart-item-name">${item.name}</div>
+                            <div class="cart-item-price">$${item.price}</div>
+                        </div>
+                        <button class="remove-item" onclick="removeFromCart(${index})">Eliminar</button>
+                    </div>
+                `;
+            }).join('');
+
+            cartTotalElement.textContent = `Total: $${total}`;
+        }
+
+        // FORM HANDLING
+        function handleContactSubmit(event) {
+            event.preventDefault();
+            const btn = event.target.querySelector('button[type="submit"]');
+            const originalText = btn.textContent;
+
+            btn.textContent = 'Enviando...';
+            btn.disabled = true;
+
+            setTimeout(() => {
+                alert('¡Mensaje enviado con éxito! Nos pondremos en contacto contigo pronto.');
+                event.target.reset();
+                btn.textContent = originalText;
+                btn.disabled = false;
+            }, 1500);
+        }
+
+        function handleLogin(event) {
+            event.preventDefault();
+            const btn = event.target.querySelector('button[type="submit"]');
+            const originalText = btn.textContent;
+
+            btn.textContent = 'Verificando...';
+            btn.disabled = true;
+
+            setTimeout(() => {
+                alert('¡Bienvenido de nuevo! Has iniciado sesión correctamente.');
+                closeModal('login');
+                btn.textContent = originalText;
+                btn.disabled = false;
+                // Update UI to show logged in state (optional/simulated)
+            }, 1500);
+        }
+
+        function handleRegister(event) {
+            event.preventDefault();
+            const btn = event.target.querySelector('button[type="submit"]');
+            const originalText = btn.textContent;
+
+            btn.textContent = 'Creando cuenta...';
+            btn.disabled = true;
+
+            setTimeout(() => {
+                alert('¡Cuenta creada con éxito! Bienvenido a la familia Mousike.');
+                closeModal('register');
+                btn.textContent = originalText;
+                btn.disabled = false;
+            }, 1500);
+        }
+
+        function handleGoogleLogin() {
+            alert('Conectando con Google... (Simulación)');
+            setTimeout(() => {
+                alert('¡Autenticación con Google exitosa!');
+                closeModal('login');
+                closeModal('register');
+            }, 1000);
+        }
+
+        // SCROLL FUNCTIONALITY
+        function scrollToTop() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }
+
+        window.onscroll = function () {
+            const scrollBtn = document.getElementById('scrollTop');
+            const header = document.getElementById('header');
+
+            if (scrollBtn) {
+                if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                    scrollBtn.classList.add('show');
+                } else {
+                    scrollBtn.classList.remove('show');
+                }
+            }
+
+            if (header) {
+                if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
+                    header.classList.add('scrolled');
+                } else {
+                    header.classList.remove('scrolled');
+                }
+            }
+        };
+
+        // INITIALIZATION
+        document.addEventListener('DOMContentLoaded', () => {
+            renderProducts();
+        });
+    </script>
+</body>
+
+</html>
