@@ -865,7 +865,7 @@
 
         .social-links {
             display: flex;
-            gap: 1rem;
+            gap: 2rem;
             margin-top: 1rem;
         }
 
@@ -1174,5 +1174,6 @@
             background: var(--azul-claro);
             transform: translateY(-5px);
         }
+
 
 
