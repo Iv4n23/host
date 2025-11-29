@@ -7,6 +7,7 @@
     <title>Mousike D'Animas - Donde tu alma encuentra su sonido</title>
     <meta name="description"
         content="Tienda especializada en instrumentos musicales de alta calidad. Guitarras, bajos, baterías, pianos y más. Servicio de mantenimiento profesional.">
+    <link rel="shortcut icon" href="imgs/logo.ico">
     <link rel="stylesheet" href="style.css">
 </head>
 
@@ -115,28 +116,28 @@
                 <h3>Instrumentos de Cuerda</h3>
                 <p>Calibración profesional, cambio de cuerdas, ajuste de tensión, reparación de trastes y mantenimiento
                     completo. Trabajamos con guitarras acústicas, eléctricas, bajos, violines, violas y más.</p>
-                <p style="margin-top: 1rem; color: var(--naranja); font-weight: 600;">Desde S/25.00</p>
+                <p style="margin-top: 1rem; color: var(--naranja); font-weight: 600;">Desde $25</p>
             </div>
             <div class="service-card" style="border-left-color: var(--purpura)">
                 <div class="service-icon">🎺</div>
                 <h3>Instrumentos de Viento</h3>
                 <p>Limpieza profunda, reparación de válvulas, ajuste de llaves, enderezamiento de tubos. Especialistas
                     en saxofones, trompetas, trombones, clarinetes y flautas.</p>
-                <p style="margin-top: 1rem; color: var(--purpura); font-weight: 600;">Desde S/40.00</p>
+                <p style="margin-top: 1rem; color: var(--purpura); font-weight: 600;">Desde $40</p>
             </div>
             <div class="service-card" style="border-left-color: var(--azul-claro)">
                 <div class="service-icon">🥁</div>
                 <h3>Percusión</h3>
                 <p>Cambio de parches, afinación precisa, reparación de herrajes, mantenimiento de platillos y
                     restauración de kits completos. Atención personalizada.</p>
-                <p style="margin-top: 1rem; color: var(--azul-claro); font-weight: 600;">Desde S/30.00</p>
+                <p style="margin-top: 1rem; color: var(--azul-claro); font-weight: 600;">Desde $30</p>
             </div>
             <div class="service-card" style="border-left-color: var(--verde)">
                 <div class="service-icon">🎹</div>
                 <h3>Electrónicos</h3>
                 <p>Diagnóstico técnico avanzado, reparación de circuitos, calibración de teclados, actualización de
                     firmware y mantenimiento especializado en equipos digitales.</p>
-                <p style="margin-top: 1rem; color: var(--verde); font-weight: 600;">Desde S/50.00</p>
+                <p style="margin-top: 1rem; color: var(--verde); font-weight: 600;">Desde $50</p>
             </div>
         </div>
     </section>
@@ -188,14 +189,20 @@
     </section>
 
     <section class="section philosophy" id="filosofia">
-        <h2>Nuestra Filosofía</h2>
-        <p>Creemos que cada persona tiene un sonido único que merece ser escuchado. En Mousike D'Animas no solo vendemos
-            instrumentos, acompañamos tu viaje musical desde el primer acorde hasta la última nota.</p>
-        <p>Cada instrumento tiene alma, cada nota cuenta una historia, y cada músico merece encontrar el compañero
-            perfecto para expresar su esencia. Seleccionamos cada producto pensando en la calidad, la personalidad
-            sonora y la capacidad de inspirar creatividad.</p>
-        <p>Más que una tienda, somos un espacio de inspiración donde la música cobra vida, donde los sueños se
-            convierten en melodías, y donde cada cliente se convierte en parte de nuestra familia musical.</p>
+        <div class="philosophy-content">
+            <h2>Nuestra Filosofía</h2>
+            <p>Creemos que cada persona tiene un sonido único que merece ser escuchado. En Mousike D'Animas no solo
+                vendemos
+                instrumentos, acompañamos tu viaje musical desde el primer acorde hasta la última nota.</p>
+            <p>Cada instrumento tiene alma, cada nota cuenta una historia, y cada músico merece encontrar el compañero
+                perfecto para expresar su esencia. Seleccionamos cada producto pensando en la calidad, la personalidad
+                sonora y la capacidad de inspirar creatividad.</p>
+            <p>Más que una tienda, somos un espacio de inspiración donde la música cobra vida, donde los sueños se
+                convierten en melodías, y donde cada cliente se convierte en parte de nuestra familia musical.</p>
+        </div>
+        <div class="philosophy-video">
+            <iframe src="https://www.youtube.com/watch?v=dE1o_uUXTvo&list=RDdE1o_uUXTvo&mute=1" allowfullscreen></iframe>
+        </div>
     </section>
 
     <section class="section" id="contacto">
@@ -280,7 +287,7 @@
                 <button class="close-modal" onclick="closeModal('cart')">×</button>
             </div>
             <div id="cartItems"></div>
-            <div class="cart-total" id="cartTotal">Total: S/00.00</div>
+            <div class="cart-total" id="cartTotal">Total: $0</div>
             <button class="btn-submit" style="margin-top: 1.5rem;"
                 onclick="alert('Funcionalidad de pago en desarrollo. ¡Gracias por tu interés!')">Proceder al
                 Pago</button>
@@ -358,17 +365,18 @@
             {
                 id: 1,
                 name: 'Fender Stratocaster',
-                price: 'S/1250.90',
+                price: 1250,
+                originalPrice: 1500, // NUEVO: Precio original
                 category: 'guitarras',
                 level: 'profesional',
                 description: 'Guitarra eléctrica icónica con sonido versátil',
                 image: 'imgs/guitarra1.jpg',
-                badge: 'Bestseller'
+                badge: 'Oferta' // CAMBIO: Badge a Oferta
             },
             {
                 id: 2,
                 name: 'Yamaha FG800',
-                price: 'S/450.50',
+                price: 450,
                 category: 'guitarras',
                 level: 'principiante',
                 description: 'Guitarra acústica ideal para empezar',
@@ -377,7 +385,7 @@
             {
                 id: 3,
                 name: 'Fender Precision Bass',
-                price: 'S/980.00',
+                price: 980,
                 category: 'bajos',
                 level: 'intermedio',
                 description: 'Bajo eléctrico con sonido potente y definido',
@@ -386,11 +394,11 @@
             {
                 id: 4,
                 name: 'Ibanez SR300E',
-                price: 'S̶/̶3̶3̶3̶1̶.̶4̶5̶    S/1613.50',
+                price: 620,
                 category: 'bajos',
                 level: 'intermedio',
                 description: 'Bajo versátil para múltiples estilos',
-                image: 'https://images.unsplash.com/photo-1598387993281-cecf8b71a8f8?w=600&q=80',
+                image: 'imgs/bajo2.png',
                 badge: 'Nuevo'
             },
             {
@@ -400,7 +408,7 @@
                 category: 'baterias',
                 level: 'profesional',
                 description: 'Batería completa 5 piezas con herrajes',
-                image: 'https://images.unsplash.com/photo-1519892300165-cb5542fb47c7?w=600&q=80'
+                image: 'imgs/bateria1.jpg'
             },
             {
                 id: 6,
@@ -409,7 +417,7 @@
                 category: 'baterias',
                 level: 'principiante',
                 description: 'Percusión tradicional de alta calidad',
-                image: 'https://images.unsplash.com/photo-1568122678389-34d9d6df5d5c?w=600&q=80',
+                image: 'imgs/cajon1.jpg',
                 badge: 'Artesanal'
             },
             {
@@ -419,7 +427,7 @@
                 category: 'pianos',
                 level: 'intermedio',
                 description: 'Piano digital 88 teclas con sonido realista',
-                image: 'https://images.unsplash.com/photo-1520523839897-bd0b52f945a0?w=600&q=80',
+                image: 'imgs/piano1.jpg',
                 badge: 'Bestseller'
             },
             {
@@ -429,7 +437,7 @@
                 category: 'pianos',
                 level: 'principiante',
                 description: 'Teclado portátil perfecto para aprender',
-                image: 'https://images.unsplash.com/photo-1511379938547-c1f69419868d?w=600&q=80'
+                image: 'imgs/piano2.jpg'
             },
             {
                 id: 9,
@@ -438,7 +446,7 @@
                 category: 'vientos',
                 level: 'intermedio',
                 description: 'Saxofón alto con excelente proyección',
-                image: 'https://www.normans.co.uk/cdn/shop/products/3499_1.jpg?v=1621240124'
+                image: 'imgs/saxofon1.jpg'
             },
             {
                 id: 10,
@@ -447,7 +455,7 @@
                 category: 'vientos',
                 level: 'principiante',
                 description: 'Trompeta perfecta para estudiantes',
-                image: 'https://images.unsplash.com/photo-1511192336575-5a79af67a629?w=600&q=80'
+                image: 'imgs/trompeta1.jpg'
             },
             {
                 id: 11,
@@ -456,7 +464,7 @@
                 category: 'vientos',
                 level: 'principiante',
                 description: 'Flauta traversa de calidad profesional',
-                image: 'https://images.unsplash.com/photo-1563281746-3369e0e0e3e9?w=600&q=80',
+                image: 'imgs/flautrav1.jpg',
                 badge: 'Oferta'
             },
             {
@@ -466,7 +474,7 @@
                 category: 'electronicos',
                 level: 'profesional',
                 description: 'Sintetizador analógico de alta gama',
-                image: 'https://images.unsplash.com/photo-1598653222000-6b7b7a552625?w=600&q=80',
+                image: 'imgs/sintetizador1.jpg',
                 badge: 'Premium'
             },
             {
@@ -476,7 +484,7 @@
                 category: 'electronicos',
                 level: 'intermedio',
                 description: 'Controlador DJ perfecto para Rekordbox',
-                image: 'https://images.unsplash.com/photo-1598653222000-6b7b7a552625?w=600&q=80'
+                image: 'imgs/controlador1.png'
             },
             {
                 id: 14,
@@ -485,7 +493,7 @@
                 category: 'electronicos',
                 level: 'principiante',
                 description: 'Pedal multiefectos compacto y potente',
-                image: 'https://images.unsplash.com/photo-1613518823175-e0f8b0f2e8d6?w=600&q=80'
+                image: 'imgs/pedal1.jpg'
             },
             {
                 id: 15,
@@ -494,7 +502,7 @@
                 category: 'guitarras',
                 level: 'profesional',
                 description: 'Ícono del rock con sonido legendario',
-                image: 'https://images.unsplash.com/photo-1510915228340-29c85a43dcfe?w=600&q=80',
+                image: 'imgs/guitarra3.png',
                 badge: 'Premium'
             }
         ];
@@ -507,15 +515,12 @@
         function renderProducts() {
             const grid = document.getElementById('productsGrid');
             let filtered = products;
-
             if (currentFilter !== 'all') {
                 filtered = filtered.filter(p => p.category === currentFilter);
             }
-
             if (currentLevel !== 'all') {
                 filtered = filtered.filter(p => p.level === currentLevel);
             }
-
             if (currentSort === 'price-asc') {
                 filtered = [...filtered].sort((a, b) => a.price - b.price);
             } else if (currentSort === 'price-desc') {
@@ -523,18 +528,20 @@
             } else if (currentSort === 'name') {
                 filtered = [...filtered].sort((a, b) => a.name.localeCompare(b.name));
             }
-
             grid.innerHTML = filtered.map(product => `
                 <div class="product-card">
                     <div class="product-img" style="background-image: url('${product.image}')">
-                        ${product.badge ? `<div class="product-badge">${product.badge}</div>` : ''}
+                        ${product.badge ? `<div class="product-badge ${product.badge.toLowerCase() === 'oferta' ? 'oferta' : ''}">${product.badge}</div>` : ''}
                     </div>
                     <div class="product-info">
                         <div class="product-category">${product.category}</div>
                         <h3 class="product-name">${product.name}</h3>
                         <p class="product-description">${product.description}</p>
                         <div class="product-footer">
-                            <div class="product-price">${product.price}</div>
+                            <div class="product-price">
+                                ${product.originalPrice ? `<span class="old-price">S/ ${product.originalPrice}</span>` : ''}
+                                <span class="${product.originalPrice ? 'offer-price' : ''}">S/ ${product.price}</span>
+                            </div>
                             <button class="add-to-cart" onclick="addToCart(${product.id})">
                                 Agregar
                             </button>
@@ -651,14 +658,14 @@
                         <div class="cart-item-img" style="background-image: url('${item.image}')"></div>
                         <div class="cart-item-info">
                             <div class="cart-item-name">${item.name}</div>
-                            <div class="cart-item-price">$${item.price}</div>
+                            <div class="cart-item-price">S/${item.price}</div>
                         </div>
                         <button class="remove-item" onclick="removeFromCart(${index})">Eliminar</button>
                     </div>
                 `;
             }).join('');
 
-            cartTotalElement.textContent = `Total: $${total}`;
+            cartTotalElement.textContent = `Total: S/${total}`;
         }
 
         // FORM HANDLING
