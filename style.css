@@ -1,6 +1,4 @@
-/* Hoja de estilos para Mousike D'Animas */
-
-* {
+  * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
@@ -221,7 +219,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-image: url('imgs/fondo.jpg');
+            background-image: url('https://images.unsplash.com/photo-1511379938547-c1f69419868d?w=1920&q=80');
             background-size: cover;
             background-position: center;
             opacity: 0.3;
@@ -666,15 +664,21 @@
             font-style: italic;
         }
 
-        /* PHILOSOPHY */
+        /* PHILOSOPHY & NUEVOS ESTILOS */
         .philosophy {
+            /* Estilos Visuales Originales */
             background: linear-gradient(135deg, rgba(0, 123, 255, 0.1) 0%, rgba(142, 68, 173, 0.1) 100%);
             border-radius: 30px;
-            padding: 5rem 3rem;
-            text-align: center;
             margin: 5rem 0;
             position: relative;
             overflow: hidden;
+            /* Nuevos Estilos de Layout (Flexbox para Video) */
+            display: flex;
+            align-items: center;
+            gap: 3rem;
+            text-align: left;
+            flex-wrap: wrap;
+            padding: 5rem 3rem;
         }
 
         .philosophy::before {
@@ -685,6 +689,30 @@
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
+            z-index: 0;
+        }
+
+        /* Contenedores para el layout de 2 columnas */
+        .philosophy-content {
+            flex: 1;
+            min-width: 300px;
+            z-index: 1;
+        }
+
+        .philosophy-video {
+            flex: 1;
+            min-width: 300px;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+            aspect-ratio: 16/9;
+            z-index: 1;
+        }
+
+        .philosophy-video iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
         }
 
         .philosophy h2 {
@@ -693,13 +721,45 @@
             position: relative;
         }
 
+        /* AQUÍ ESTÁ EL JUSTIFICADO PARA FILOSOFÍA */
         .philosophy p {
             font-size: 1.3rem;
             line-height: 1.9;
             color: rgba(255, 255, 255, 0.9);
-            max-width: 900px;
             margin: 0 auto 1.5rem;
             position: relative;
+            text-align: justify;
+        }
+
+        /* AQUÍ ESTÁ EL JUSTIFICADO PARA SERVICIOS E HISTORIAS */
+        .service-card p,
+        .story-text {
+            text-align: justify;
+        }
+
+        /* ESTILOS PARA OFERTAS (Necesarios para que se vea el precio tachado) */
+        .old-price {
+            text-decoration: line-through;
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 1.2rem;
+            margin-right: 0.5rem;
+            font-weight: normal;
+        }
+
+        .offer-price {
+            color: var(--naranja);
+            font-weight: 800;
+        }
+
+        .product-badge.oferta {
+            background: var(--naranja);
+            color: var(--blanco);
+        }
+
+        /* MEJORAS EN DROPDOWN */
+        .sort-select option {
+            background-color: #1A1A1A;
+            color: #FFFFFF;
         }
 
         /* CONTACT FORM */
