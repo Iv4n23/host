@@ -770,6 +770,15 @@
         document.addEventListener('DOMContentLoaded', () => {
             renderProducts();
         });
+        const notes = ['C', 'D', 'E', 'F', 'G', 'A', 'B'];
+        const pianoDiv = document.getElementById('piano-container');
+        pianoDiv.innerHTML = notes.map(note => `
+            <button onclick="playNote('${note}')" class="piano-key">${note}</button>
+        `).join('');
+        function playNote(note) {
+            const audio = new Audio(`sounds/${note}.mp3`);
+            audio.play();
+        }
     </script>
 </body>
 
