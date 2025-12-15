@@ -666,19 +666,22 @@
 
         /* PHILOSOPHY & NUEVOS ESTILOS */
         .philosophy {
-            /* Estilos Visuales Originales */
+            width: 100%;
+            max-width: 100%;
+            box-sizing: border-box;
             background: linear-gradient(135deg, rgba(0, 123, 255, 0.1) 0%, rgba(142, 68, 173, 0.1) 100%);
             border-radius: 30px;
             margin: 5rem 0;
             position: relative;
             overflow: hidden;
-            /* Nuevos Estilos de Layout (Flexbox para Video) */
             display: flex;
-            align-items: center;
-            gap: 3rem;
-            text-align: left;
             flex-wrap: wrap;
+            gap: 3rem;
+            justify-content: space-between;
+            align-items: flex-start;
             padding: 5rem 3rem;
+            padding-inline: 2rem;
+            text-align: left;
         }
 
         .philosophy::before {
@@ -692,7 +695,8 @@
             z-index: 0;
         }
 
-        /* Contenedores para el layout de 2 columnas */
+        /* Contenedores para el layout */
+        .philosophy-text,
         .philosophy-content {
             flex: 1;
             min-width: 300px;
@@ -719,6 +723,46 @@
             font-size: 3rem;
             margin-bottom: 2rem;
             position: relative;
+        }
+
+        /* Bloque lateral derecho para el piano */
+        .philosophy-piano {
+            flex: 1;
+            min-width: 280px;
+            background: rgba(26, 26, 26, 0.6);
+            border-radius: 20px;
+            padding: 2rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            z-index: 1;
+        }
+
+        .piano-interactive {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+
+        .piano-key {
+            margin: 0.3rem;
+            padding: 0.8rem 1.2rem;
+            background: var(--azul);
+            border: none;
+            border-radius: 10px;
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+            transition: transform 0.2s ease;
+        }
+
+        .piano-key:hover {
+            transform: scale(1.1);
+            background: var(--azul-claro);
         }
 
         /* AQUÍ ESTÁ EL JUSTIFICADO PARA FILOSOFÍA */
@@ -1175,6 +1219,7 @@
             background: var(--azul-claro);
             transform: translateY(-5px);
         }
+
 
 
 
